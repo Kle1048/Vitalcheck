@@ -214,7 +214,7 @@ class HealthSurveyApp {
         const csv = this.generateCsv();
         const subject = encodeURIComponent('Gesundheits- & Fitnessumfrage');
         const body = encodeURIComponent(csv);
-        const email = 'franziska.ehret@example.com';
+        const email = 'klemens.ehret@gmail.com';
         
         const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
         window.location.href = mailtoLink;

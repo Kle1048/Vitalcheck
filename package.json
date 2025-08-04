@@ -1,0 +1,23 @@
+{
+  "name": "fitline-vitalcheck",
+  "version": "1.0.0",
+  "description": "Eine mobile-first Web-App für Gesundheits- und Fitnessumfragen mit 22 Fragen und CSV-Export-Funktionalität.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kle1048/Vitalcheck.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kle1048/Vitalcheck/issues"
+  },
+  "homepage": "https://github.com/Kle1048/Vitalcheck#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}
