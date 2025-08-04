@@ -5,7 +5,7 @@ class HealthSurveyApp {
         this.answers = [];
         this.firstName = '';
         this.questions = [
-            "Haben Sie tagsüber „Energielöcher" oder fühlen sich häufig müde und erschöpft?",
+            "Haben Sie tagsüber \"Energielöcher\" oder fühlen sich häufig müde und erschöpft?",
             "Fällt es Ihnen schwer, sich über längere Zeit zu konzentrieren?",
             "Leiden Sie ab und zu unter Kopfschmerzen und/oder Migräne?",
             "Leiden Sie unter häufigem Frieren (kalte Hände, kalte Füße)?",
