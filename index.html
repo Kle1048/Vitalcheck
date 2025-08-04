@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesundheits- & Fitnesscheck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'yes-green': '#4CAF50',
+                        'no-red': '#F44336',
+                        'nav-blue': '#2196F3'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="app" class="container mx-auto px-4 py-8 max-w-md">
+        <!-- Start Screen -->
+        <div id="start-screen" class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">Gesundheits- & Fitnesscheck</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+                <label for="firstname" class="block text-lg font-medium text-gray-700 mb-4">
+                    Bitte geben Sie Ihren Vornamen ein:
+                </label>
+                <input 
+                    type="text" 
+                    id="firstname" 
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nav-blue focus:border-transparent text-lg"
+                    placeholder="Ihr Vorname"
+                    required
+                >
+            </div>
+            
+            <button 
+                id="start-btn" 
+                class="w-full bg-nav-blue text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled
+            >
+                Starten
+            </button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                        <span id="progress-text">Frage 1 von 22</span>
+                        <span id="progress-percentage">5%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div id="progress-bar" class="bg-nav-blue h-3 rounded-full transition-all duration-300" style="width: 5%"></div>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <h2 id="question-text" class="text-xl font-semibold text-gray-800 mb-8 leading-relaxed"></h2>
+
+                <!-- Answer Buttons -->
+                <div class="space-y-4 mb-8">
+                    <button 
+                        id="yes-btn" 
+                        class="w-full bg-yes-green text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors"
+                    >
+                        Ja
+                    </button>
+                    <button 
+                        id="no-btn" 
+                        class="w-full bg-no-red text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-red-600 transition-colors"
+                    >
+                        Nein
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex space-x-4">
+                    <button 
+                        id="back-btn" 
+                        class="flex-1 bg-gray-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
+                    >
+                        Zurück
+                    </button>
+                    <button 
+                        id="next-btn" 
+                        class="flex-1 bg-nav-blue text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-questions for Question 15 -->
+        <div id="sub-questions-screen" class="hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                        <span>Frage 15 von 22</span>
+                        <span>68%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-nav-blue h-3 rounded-full" style="width: 68%"></div>
+                    </div>
+                </div>
+
+                <h2 class="text-xl font-semibold text-gray-800 mb-6">Neigen Sie schnell zur Übersäuerung?</h2>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sub-q1" class="w-5 h-5 text-nav-blue border-gray-300 rounded focus:ring-nav-blue">
+                        <label for="sub-q1" class="ml-3 text-gray-700">Essen Sie viel Fleisch bzw. Schweinefleisch? (Harnsäure / Schwefelsäure)</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sub-q2" class="w-5 h-5 text-nav-blue border-gray-300 rounded focus:ring-nav-blue">
+                        <label for="sub-q2" class="ml-3 text-gray-700">Essen Sie viel Süßes oder Fettes? (Essigsäure)</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sub-q3" class="w-5 h-5 text-nav-blue border-gray-300 rounded focus:ring-nav-blue">
+                        <label for="sub-q3" class="ml-3 text-gray-700">Essen Sie Käse und/oder Wurst? (Salpetersäure)</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sub-q4" class="w-5 h-5 text-nav-blue border-gray-300 rounded focus:ring-nav-blue">
+                        <label for="sub-q4" class="ml-3 text-gray-700">Trinken Sie Kaffee oder schwarzen Tee? (Gerbsäure)</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="sub-q5" class="w-5 h-5 text-nav-blue border-gray-300 rounded focus:ring-nav-blue">
+                        <label for="sub-q5" class="ml-3 text-gray-700">Treiben Sie viel Sport? (Milchsäure)</label>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex space-x-4">
+                    <button 
+                        id="sub-back-btn" 
+                        class="flex-1 bg-gray-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
+                    >
+                        Zurück
+                    </button>
+                    <button 
+                        id="sub-next-btn" 
+                        class="flex-1 bg-nav-blue text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completion-screen" class="hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Vielen Dank!</h2>
+                
+                <p class="text-lg text-gray-700 mb-8">
+                    Sie haben alle Fragen beantwortet.
+                </p>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+                    <p class="text-yellow-800 font-medium">
+                        Mit dem Absenden willigen Sie ein, dass Ihre Gesundheitsdaten an Franziska Ehret übermittelt werden.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <button 
+                        id="send-email-btn" 
+                        class="w-full bg-yes-green text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors"
+                    >
+                        Ergebnisse per E-Mail senden
+                    </button>
+                    
+                    <button 
+                        id="download-csv-btn" 
+                        class="w-full bg-gray-500 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-gray-600 transition-colors"
+                    >
+                        CSV herunterladen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
