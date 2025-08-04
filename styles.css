@@ -13,9 +13,13 @@ body {
 }
 
 .container {
-  max-width: 28rem;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hidden {
@@ -373,7 +377,8 @@ button {
 /* Responsive Design */
 @media (max-width: 640px) {
   .container {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
+    min-height: 100vh;
   }
   
   .text-3xl {
@@ -383,5 +388,28 @@ button {
   
   .p-6 {
     padding: 1rem;
+  }
+  
+  /* Vollbildschirm-Nutzung auf Mobile */
+  body {
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #start-screen,
+  #question-screen,
+  #sub-questions-screen,
+  #completion-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 } 
